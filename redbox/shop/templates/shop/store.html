@@ -3,24 +3,28 @@
   {% block content %}
     <h1>This is a store</h1>
     {% if movies %}
+      <a class="btn btn-primary" href="{% url 'movies' sort='alpha' %}">Sort A - Z</a>
+      <a class="btn btn-primary" href="{% url 'movies' sort='rating' %}">Sort By Rating</a>
       <h3>Movies Section</h3>
       {% for movie in movies %}
-        <p>{{movie.title}}</p>
-        <img src="{{movie.image.url}}" alt="">
-        <p>{{movie.description}}</p>
-        <p>{{movie.genre}}</p>
-        <p>{{movie.rating}}</p>
+        <p>Title: {{movie.title}}</p>
+        <p><img src="{{movie.image.url}}" alt=""></p>
+        <p>Description: {{movie.description}}</p>
+        <p>Genre: {{movie.genre}}</p>
+        <p>Rating: {{movie.rating}}</p>
         <hr>
       {% endfor %}
     {% endif %}
     {% if games %}
+      <a class="btn btn-primary" href="{% url 'games' sort='alpha' %}">Sort A - Z</a>
+      <a class="btn btn-primary" href="{% url 'games' sort='rating' %}">Sort By Rating</a>
       <h3>Games Section</h3>
       {% for game in games %}
-        <p>{{game.title}}</p>
-        <img src="{{game.image.url}}" alt="">
-        <p>{{game.description}}</p>
-        <p>{{game.genre}}</p>
-        <p>{{game.rating}}</p>
+        <p>Title: {{game.title}}</p>
+        <p><img src="{{game.image.url}}" alt=""></p>
+        <p>Description: {{game.description}}</p>
+        <p>Genre: {{game.genre}}</p>
+        <p>Rating: {{game.rating}}</p>
         <hr>
       {% endfor %}
     {% endif %}
