@@ -21,5 +21,7 @@ from . import views as views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='home'),
+    url(r'^addgame$', views.add_game, name='add_game'),
+    url(r'^addmovie$', views.add_movie, name='add_movie'),
     url(r'^shop/', include('shop.urls')),
 ]
