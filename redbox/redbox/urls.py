@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from . import views as views
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -24,4 +26,5 @@ urlpatterns = [
     url(r'^addgame$', views.add_game, name='add_game'),
     url(r'^addmovie$', views.add_movie, name='add_movie'),
     url(r'^shop/', include('shop.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

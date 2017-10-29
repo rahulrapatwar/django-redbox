@@ -11,9 +11,12 @@ def add_game(request):
         form = GameForm(request.POST)
         # check if the form is valid or not
         if form.is_valid():
-            # check if the game image exists
-            # if 'image' in request.FILES:
+            # save the form but do not commit to database
+            form_temp = form.save(commit=False)
 
+            # check if the game image exists
+            if 'image' in request.FILES:
+                form_temp.image = request.FILES['image']
             # save the form data to the database
             form.save();
     else:
@@ -27,9 +30,12 @@ def add_movie(request):
         form = MovieForm(request.POST)
         # check if the form is valid or not
         if form.is_valid():
-            # check if the game image exists
-            # if 'image' in request.FILES:
+            # save the form but do not commit to database
+            form_temp = form.save(commit=False)
 
+            # check if the game image exists
+            if 'image' in request.FILES:
+                form_temp.image = request.FILES['image']
             # save the form data to the database
             form.save();
     else:

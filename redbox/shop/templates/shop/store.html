@@ -2,4 +2,26 @@
 
   {% block content %}
     <h1>This is a store</h1>
+    {% if movies %}
+      <h3>Movies Section</h3>
+      {% for movie in movies %}
+        <p>{{movie.title}}</p>
+        <img src="{{movie.image.url}}" alt="">
+        <p>{{movie.description}}</p>
+        <p>{{movie.genre}}</p>
+        <p>{{movie.rating}}</p>
+        <hr>
+      {% endfor %}
+    {% endif %}
+    {% if games %}
+      <h3>Games Section</h3>
+      {% for game in games %}
+        <p>{{game.title}}</p>
+        <img src="{{game.image.url}}" alt="">
+        <p>{{game.description}}</p>
+        <p>{{game.genre}}</p>
+        <p>{{game.rating}}</p>
+        <hr>
+      {% endfor %}
+    {% endif %}
   {% endblock %}

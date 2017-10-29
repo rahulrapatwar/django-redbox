@@ -6,7 +6,7 @@ class Game(models.Model):
     description = models.TextField()
     genre = models.CharField(max_length=250)
     rating = models.PositiveIntegerField()
-    image = models.ImageField(upload_to='game_pics')
+    image = models.ImageField(upload_to='game_pics',blank=True)
 
     def __str__(self):
         return self.title
@@ -16,7 +16,7 @@ class Movie(models.Model):
     description = models.TextField()
     genre = models.CharField(max_length=250)
     rating = models.PositiveIntegerField()
-    image = models.ImageField(upload_to='movie_pics')
+    image = models.ImageField(upload_to='movie_pics',blank=True)
 
     def __str__(self):
         return self.title
