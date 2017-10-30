@@ -7,8 +7,8 @@
       <a class="btn btn-primary" href="{% url 'movies' sort='rating' %}">Sort By Rating</a>
       <h3>Movies Section</h3>
       {% for movie in movies %}
-        <p>Title: {{movie.title}}</p>
-        <p><img src="{{movie.image.url}}" alt=""></p>
+        <p>Title: <a href="{% url 'movie_detail' pk=movie.pk %}">{{movie.title}}</a></p>
+        <p><a href="{% url 'movie_detail' pk=movie.pk %}"><img src="{{movie.image.url}}" alt=""></a></p>
         <p>Description: {{movie.description}}</p>
         <p>Genre: {{movie.genre}}</p>
         <p>Rating: {{movie.rating}}</p>
@@ -20,8 +20,8 @@
       <a class="btn btn-primary" href="{% url 'games' sort='rating' %}">Sort By Rating</a>
       <h3>Games Section</h3>
       {% for game in games %}
-        <p>Title: {{game.title}}</p>
-        <p><img src="{{game.image.url}}" alt=""></p>
+        <p>Title: <a href="{% url 'game_detail' pk=game.pk %}">{{game.title}}</a></p>
+        <p><a href="{% url 'game_detail' pk=game.pk %}"><img src="{{game.image.url}}" alt=""></a></p>
         <p>Description: {{game.description}}</p>
         <p>Genre: {{game.genre}}</p>
         <p>Rating: {{game.rating}}</p>
