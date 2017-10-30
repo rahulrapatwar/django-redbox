@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Game,Movie
+from cart.models import Cart
 
 # Create your views here.
 def games(request,sort):
@@ -33,4 +34,5 @@ def game_detail(request,pk):
 # add movie to the cart
 def add_movie_to_cart(request,pk):
     add_movie = get_object_or_404(Movie,pk=pk)
+    Cart.objects.create(product='movie',product_id=pk)
     return render(request, 'shop/detail.html', {'add_movie':add_movie})

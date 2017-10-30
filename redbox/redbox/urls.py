@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^addgame$', views.add_game, name='add_game'),
     url(r'^addmovie$', views.add_movie, name='add_movie'),
     url(r'^shop/', include('shop.urls')),
+    url(r'^cart/', include('cart.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

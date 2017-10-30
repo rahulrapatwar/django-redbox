@@ -1,31 +1,40 @@
 {% extends 'shop/shop_base.html' %}
 
   {% block content %}
-    <h1>This is a store</h1>
     {% if movies %}
-      <a class="btn btn-primary" href="{% url 'movies' sort='alpha' %}">Sort A - Z</a>
-      <a class="btn btn-primary" href="{% url 'movies' sort='rating' %}">Sort By Rating</a>
-      <h3>Movies Section</h3>
-      {% for movie in movies %}
-        <p>Title: <a href="{% url 'movie_detail' pk=movie.pk %}">{{movie.title}}</a></p>
-        <p><a href="{% url 'movie_detail' pk=movie.pk %}"><img src="{{movie.image.url}}" alt=""></a></p>
-        <p>Description: {{movie.description}}</p>
-        <p>Genre: {{movie.genre}}</p>
-        <p>Rating: {{movie.rating}}</p>
-        <hr>
-      {% endfor %}
+      <div class="section_title">
+        <h1>Movies Section</h1>
+        <a class="btn btn-primary btn-sm" href="{% url 'movies' sort='alpha' %}">Sort A - Z</a>
+        <a class="btn btn-primary btn-sm" href="{% url 'movies' sort='rating' %}">Sort By Rating</a>
+      </div>
+      <div class="row">
+        {% for movie in movies %}
+        <div class="product_list">
+          <p><h3><a href="{% url 'movie_detail' pk=movie.pk %}">{{movie.title}}</a></h3></p>
+          <p><a href="{% url 'movie_detail' pk=movie.pk %}"><img src="{{movie.image.url}}" alt=""></a></p>
+          <!-- <p>Description: {{movie.description}}</p> -->
+          <p><h6>Genre: {{movie.genre}}</h6></p>
+          <p><h6>Ratings: {{movie.rating}}</h6></p>
+        </div>
+        {% endfor %}
+      </div>
     {% endif %}
     {% if games %}
-      <a class="btn btn-primary" href="{% url 'games' sort='alpha' %}">Sort A - Z</a>
-      <a class="btn btn-primary" href="{% url 'games' sort='rating' %}">Sort By Rating</a>
-      <h3>Games Section</h3>
-      {% for game in games %}
-        <p>Title: <a href="{% url 'game_detail' pk=game.pk %}">{{game.title}}</a></p>
-        <p><a href="{% url 'game_detail' pk=game.pk %}"><img src="{{game.image.url}}" alt=""></a></p>
-        <p>Description: {{game.description}}</p>
-        <p>Genre: {{game.genre}}</p>
-        <p>Rating: {{game.rating}}</p>
-        <hr>
-      {% endfor %}
+      <div class="section_title">
+        <h1>Games Section</h1>
+        <a class="btn btn-primary btn-sm" href="{% url 'games' sort='alpha' %}">Sort A - Z</a>
+        <a class="btn btn-primary btn-sm" href="{% url 'games' sort='rating' %}">Sort By Rating</a>
+      </div>
+      <div class="row">
+        {% for game in games %}
+        <div class="product_list">
+          <p><h3><a href="{% url 'game_detail' pk=game.pk %}">{{game.title}}</a></h3></p>
+          <p><a href="{% url 'game_detail' pk=game.pk %}"><img src="{{game.image.url}}" alt=""></a></p>
+          <!-- <p>Description: {{game.description}}</p> -->
+          <p><h6>Genre: {{game.genre}}</h6></p>
+          <p><h6>Rating: {{game.rating}}</h6></p>
+        </div>
+        {% endfor %}
+      </div>
     {% endif %}
   {% endblock %}
