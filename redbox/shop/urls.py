@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^movie/detail/(?P<pk>\d+)$', views.movie_detail, name='movie_detail'),
     url(r'^game/detail/(?P<pk>\d+)$', views.game_detail, name='game_detail'),
     url(r'^movie/detail/(?P<pk>\d+)/add$', views.add_movie_to_cart, name='add_movie_to_cart'),
+    url(r'^game/detail/(?P<pk>\d+)/add$', views.add_game_to_cart, name='add_game_to_cart'),
 ]

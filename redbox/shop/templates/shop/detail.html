@@ -16,9 +16,15 @@
       <p><h5>{{game.description}}</h5></p>
       <p><h5>Genre: {{game.genre}}</h5></p>
       <p><h5>Rating: {{game.rating}}</h5></p>
+      <p><a class="btn btn-primary" href="{% url 'add_game_to_cart' pk=game.pk %}">Add To Cart</a></p>
     {% endif %}
     {% if add_movie %}
       <p><h5>The movie {{add_movie.title}} has been added successfully added to cart</h5></p>
+      <p><a class="btn btn-primary" href="{% url 'cart' %}">View Cart</a></p>
+      <p><a class="btn btn-primary" href="{% url 'home' %}">Continue Shopping</a></p>
+    {% endif %}
+    {% if add_game %}
+      <p><h5>The game {{add_game.title}} has been added successfully added to cart</h5></p>
       <p><a class="btn btn-primary" href="{% url 'cart' %}">View Cart</a></p>
       <p><a class="btn btn-primary" href="{% url 'home' %}">Continue Shopping</a></p>
     {% endif %}

@@ -5,14 +5,22 @@
       <p><h1>Thanks for shopping with Redbox !!!</h1></p>
       <p><a class="btn btn-primary" href="{% url 'home' %}">Go Back To Home</a></p>
     {% else %}
-      {% for item in cart_items %}
-        <p>Title: <a href="{% url 'movie_detail' pk=item.pk %}">{{item.title}}</a></p>
-        <p><a href="{% url 'movie_detail' pk=item.pk %}"><img src="{{item.image.url}}" alt=""></a></p>
-        <p>Description: {{item.description}}</p>
-        <p>Genre: {{item.genre}}</p>
-        <p>Rating: {{item.rating}}</p>
-      {% endfor %}
-      <a class="btn btn-primary" href="{% url 'home' %}">Continue Shopping</a>
-      <a class="btn btn-primary" href="{% url 'purchase' %}">Purchase</a>
+      <div class="cart">
+        {% for item in cart_items %}
+        <div class="row">
+          <p><a href="{% url 'movie_detail' pk=item.pk %}"><img src="{{item.image.url}}" alt=""></a></p>
+          <p><a href="{% url 'movie_detail' pk=item.pk %}">{{item.title}}</a></p>
+          <p>Genre: {{item.genre}}</p>
+          <p>Rating: {{item.rating}}</p>
+        </div>
+        {% endfor %}
+        {% if cart_items|length == 0 %}
+          <p><h1>The cart is empty</h1></p>
+          <a class="btn btn-primary" href="{% url 'home' %}">Continue Shopping</a>
+        {% else %}
+          <a class="btn btn-primary" href="{% url 'home' %}">Continue Shopping</a>
+          <a class="btn btn-primary" href="{% url 'purchase' %}">Purchase Order</a>
+        {% endif %}
+      </div>
     {% endif %}
   {% endblock %}

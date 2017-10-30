@@ -36,3 +36,9 @@ def add_movie_to_cart(request,pk):
     add_movie = get_object_or_404(Movie,pk=pk)
     Cart.objects.create(product='movie',product_id=pk)
     return render(request, 'shop/detail.html', {'add_movie':add_movie})
+
+# add game to the cart
+def add_game_to_cart(request,pk):
+    add_game = get_object_or_404(Game,pk=pk)
+    Cart.objects.create(product='game',product_id=pk)
+    return render(request, 'shop/detail.html', {'add_game':add_game})
