@@ -5,6 +5,7 @@
       <p><h1>Thanks for shopping with Redbox !!!</h1></p>
       <p><a class="btn btn-primary" href="{% url 'home' %}">Go Back To Home</a></p>
     {% else %}
+      <h1 class="cart_title">Shopping Cart</h1>
       <div class="cart">
         {% for item in cart_items %}
         <div class="row">
